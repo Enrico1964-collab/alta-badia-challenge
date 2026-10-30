@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="mountain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="snow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f8fafc" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sfondo Arrotondato App -->
+  <rect width="512" height="512" rx="128" fill="url(#bg)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="rgba(245, 158, 11, 0.3)" stroke-width="6" />
+
+  <!-- Sagome Vette Dolomitiche -->
+  <polygon points="120,380 256,150 392,380" fill="#334155" />
+  <polygon points="256,150 200,245 235,230 256,260 277,230 312,245" fill="url(#snow)" opacity="0.9" />
+
+  <!-- Picco Principale Sassongher / Sella Dorato -->
+  <polygon points="180,380 320,110 460,380" fill="url(#mountain)" opacity="0.95" />
+  <polygon points="320,110 260,215 300,200 320,230 340,200 380,215" fill="url(#snow)" />
+
+  <polygon points="40,380 150,220 260,380" fill="#1e293b" />
+  <polygon points="150,220 110,280 135,270 150,290 165,270 190,280" fill="url(#snow)" opacity="0.8" />
+
+  <!-- Rifugio / Baita Alpina Tipica -->
+  <polygon points="256,310 200,360 312,360" fill="#b45309" stroke="#fef08a" stroke-width="4" />
+  <rect x="220" y="360" width="72" height="40" fill="#78350f" />
+  <rect x="244" y="375" width="24" height="25" fill="#fef08a" />
+
+  <!-- Stella / Badge Medaglia -->
+  <circle cx="400" cy="120" r="42" fill="#f59e0b" stroke="#ffffff" stroke-width="4" />
+  <polygon points="400,92 409,112 430,112 413,124 419,144 400,131 381,144 387,124 370,112 391,112" fill="#ffffff" />
+</svg>

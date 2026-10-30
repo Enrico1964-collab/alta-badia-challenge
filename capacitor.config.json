@@ -1,0 +1,15 @@
+{
+  "appId": "app.altabadia.mountainhutschallenge",
+  "appName": "Alta Badia Huts Challenge",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "BackgroundGeolocation": {
+      "backgroundMessage": "Rilevamento rifugi e tracciamento percorso attivo in background",
+      "backgroundTitle": "Alta Badia Mountain Huts Challenge"
+    }
+  }
+}

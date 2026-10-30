@@ -1,0 +1,25 @@
+{
+  "name": "alta-badia-mountain-huts-challenge",
+  "version": "1.0.0",
+  "description": "App Android nativa per Alta Badia Mountain Huts Challenge con tracciamento GPS in background 24/7",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Web assets ready in root'",
+    "cap:sync": "cap sync",
+    "cap:open": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/geolocation": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor-community/background-geolocation": "^1.2.22"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0"
+  },
+  "keywords": ["alta-badia", "hiking", "dolomiti", "mountain-huts", "gps-tracking", "background-geolocation"],
+  "author": "Alta Badia Challenge Team",
+  "license": "MIT"
+}

@@ -1,0 +1,4 @@
+// Generato automaticamente da Capacitor CLI durante 'npx cap sync'
+// Questo file include le dipendenze e configurazioni per i plugin nativi registrati
+dependencies {
+}

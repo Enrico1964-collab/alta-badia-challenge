@@ -1,0 +1,238 @@
+/* Alta Badia Mountain Huts Challenge - Alpine Modern Styling */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --color-dolomite: #f8fafc;
+    --color-gold: #f59e0b;
+    --color-gold-glow: rgba(245, 158, 11, 0.25);
+    --color-emerald: #10b981;
+    --color-emerald-glow: rgba(16, 185, 129, 0.25);
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #030712;
+    color: #f1f5f9;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-nav {
+    background: rgba(10, 15, 30, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Leaflet Customizations */
+.leaflet-container {
+    font-family: var(--font-body) !important;
+    background: #090d16 !important;
+}
+
+.custom-hut-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.custom-hut-marker:hover {
+    transform: scale(1.15);
+    z-index: 1000 !important;
+}
+
+.hut-pin-inner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+    font-size: 11px;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+}
+
+.hut-pin-inner.visited {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-color: #fef08a;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
+}
+
+.hut-pin-inner.unvisited {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #e2e8f0;
+}
+
+.user-pulse-marker {
+    position: relative;
+    width: 22px;
+    height: 22px;
+}
+
+.user-pulse-dot {
+    width: 16px;
+    height: 16px;
+    background: #10b981;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
+}
+
+.user-pulse-ring {
+    width: 36px;
+    height: 36px;
+    border: 2px solid #10b981;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    animation: pulse-ring 2s infinite ease-out;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Digital Stamp Effect */
+.stamp-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.stamp-verified {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px dashed #f59e0b;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+.passport-stamp-seal {
+    width: 68px;
+    height: 68px;
+    border: 2.5px dashed #f59e0b;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
+    transform: rotate(-12deg);
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+}
+
+/* Radar Scan Animation for Tracking HUD */
+@keyframes radar-sweep {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.radar-sweep-effect {
+    animation: radar-sweep 4s linear infinite;
+}
+
+/* Shimmer Effect for Leaderboard Podium */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.shimmer-gold {
+    background: linear-gradient(90deg, #f59e0b 0%, #fef08a 50%, #f59e0b 100%);
+    background-size: 200% auto;
+    color: #1e1b4b;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Confetti particles */
+.confetti-container {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+/* Mobile Safe Bottom Spacing */
+.safe-bottom {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 1rem));
+}
