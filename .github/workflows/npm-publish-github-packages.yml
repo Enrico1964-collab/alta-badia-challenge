@@ -25,22 +25,31 @@ jobs:
         with:
           node-version: 20
 
+      - name: Prepara cartella web www
+        run: |
+          mkdir -p www
+          cp -r index.html css js icons manifest.json sw.js www/ || true
+          sed -i 's/"webDir": "\."/"webDir": "www"/g' capacitor.config.json
+
       - name: Installa dipendenze
         run: npm install
 
-      - name: Prepara Gradle Wrapper e Sincronizza Capacitor
+      - name: Genera progetto Android nativo con Capacitor
         run: |
-          if [ ! -f "android/gradlew" ]; then
-            cd android && gradle wrapper || true
-            cd ..
-          fi
+          rm -rf android
+          npx cap add android
+
+      - name: Aggiungi permessi per Standby e Background GPS
+        run: |
+          sed -i '/<application/i \    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />\n    <uses-permission android:name="android.permission.WAKE_LOCK" />\n    <uses-permission android:name="android.permission.VIBRATE" />' android/app/src/main/AndroidManifest.xml
+          sed -i '/<\/application>/i \        <service android:name="com.equimaps.capacitor_background_geolocation.BackgroundGeolocationService" android:enabled="true" android:exported="false" android:foregroundServiceType="location" />' android/app/src/main/AndroidManifest.xml
           npx cap sync android
 
-      - name: Compila APK Debug
+      - name: Compila APK Debug con Gradle
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug
 
       - name: Carica APK scaricabile
         uses: actions/upload-artifact@v4
