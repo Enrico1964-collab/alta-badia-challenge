@@ -42,7 +42,6 @@ jobs:
       - name: Aggiungi permessi per Standby e Background GPS
         run: |
           sed -i '/<application/i \    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />\n    <uses-permission android:name="android.permission.WAKE_LOCK" />\n    <uses-permission android:name="android.permission.VIBRATE" />' android/app/src/main/AndroidManifest.xml
-          sed -i '/<\/application>/i \        <service android:name="com.equimaps.capacitor_background_geolocation.BackgroundGeolocationService" android:enabled="true" android:exported="false" android:foregroundServiceType="location" />' android/app/src/main/AndroidManifest.xml
           npx cap sync android
 
       - name: Compila APK Debug con Gradle
